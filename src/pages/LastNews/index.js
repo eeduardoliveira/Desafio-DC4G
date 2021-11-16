@@ -1,11 +1,26 @@
-
+import {useEffect, useState} from 'react';
 import { Filter, Category, Data, Description, Header, Img, Item,  Link, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem } from "./styled";
 import calender from './images/Vector.png';
 import filter from './images/filter-list.png';
 
 
 export function LastNews(){
-    
+    // Integração da API
+    const [news, setNews] = useState([])
+    const getNews = async () => { 
+        const response = await fetch('https://newnoticias.digital-gov.com/api/cms/noticias/', {   
+            method: 'GET', 
+            headers: { 
+                Authorization: 'Api-Key z3QazK8p.KVEhWR0A9GvpCUF70KsCqrKC9ROmLjWL',
+            }
+          }) 
+        const {results} = await response.json();
+        setNews(results);
+        console.log(results);
+    }
+    useEffect(() => {
+         getNews();
+     },[])
     return (
      <>
      {/* TOPO DA PÁGINA */}
@@ -19,7 +34,8 @@ export function LastNews(){
         </Filter>
         {/* NOTICIAS */}
         <List>
-            
+
+            {news.map((item) => {
                 return (
                 <Item >
                     <ContentItem>   
@@ -38,8 +54,8 @@ export function LastNews(){
                     </ContentItem>
                 </Item>
                 )
-                   )
-            
+               }   )
+            }
                         
         </List>
         {/* PAGINAÇÃO */}
