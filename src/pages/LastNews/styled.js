@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-
+export const Principal = styled.div`
+        max-width: 1040px;
+        margin: auto;
+`
 // Cabeçalho do sites
 export const Header = styled.header` 
         display: flex;
@@ -57,7 +60,7 @@ export const List = styled.ul`
 `
 // box com a noticia
 export const Item = styled.li`
-        width: 100%;
+        width: 104rem;
         height: 24rem;
         border: 1px solid #E1E6EF;
         margin-top: 1.6rem;
@@ -79,12 +82,11 @@ export const News = styled.div`
 export const TitleMaterial = styled.h2`
         color: #333333;
         font-size: 2.4rem;
-
-`
-
-export const Link = styled.a`
-        text-decoration: none;
-        color: inherit;
+        margin-right: 0.87rem;
+        a {
+                text-decoration: none;
+                 color: inherit;
+        }
 `
 
 export const Category = styled.span`
@@ -131,6 +133,6 @@ export const Description = styled.p`
 export const Pagination = styled.div`   
         position: relative;
         font-size: 25px;
-        padding-top: 180px;
+        padding-top: 170px;
         left: 400px;
 `

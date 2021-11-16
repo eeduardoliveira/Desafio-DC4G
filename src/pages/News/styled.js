@@ -1,16 +1,18 @@
 import styled from 'styled-components'
 
+export const Principal = styled.div`
+    margin: 0;
+    padding: 0;
+
+`
 export const Header =  styled.div`
     background-color: #0073E6;
-    display: flex;
-    flex-direction: column;
-    width: 1440px;
-    height: 324px;
+    
 `
 
 export const TitleNews =  styled.div`
-color: #FFFFFF;
-    margin: 8rem 20rem 16.8rem 20rem;
+    padding: 8rem 20rem 1.6rem 20rem;
+    color: #FFFFFF;
     h1 {
         font-size: 3.2rem;
     }
@@ -24,9 +26,7 @@ export const Data = styled.div`
         display: flex;
         align-items: center;
         font-size: 1.4rem;
-        margin-top: 6.4rem;
         span{ 
-                margin-left: 0.887rem; 
         }
         img{
                 width: 2.13rem;
@@ -35,6 +35,5 @@ export const Data = styled.div`
 `
 
 export const Camp = styled.img`
-        margin: 5rem 20rem 8rem 20rem;
 
 `

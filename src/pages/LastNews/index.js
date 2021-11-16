@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
-import { Filter, Category, Data, Description, Header, Img, Item,  Link, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem } from "./styled";
+import { Filter, Category, Data, Description, Header, Img, Item, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem,Principal } from "./styled";
 import calender from './images/Vector.png';
 import filter from './images/filter-list.png';
+import {Link} from 'react-router-dom';
 
 
 export function LastNews(){
@@ -22,7 +23,7 @@ export function LastNews(){
          getNews();
      },[])
     return (
-     <>
+    <Principal>
      {/* TOPO DA PÁGINA */}
         <Header> 
             <h1><strong>Últimas Noticias</strong></h1> 
@@ -42,7 +43,9 @@ export function LastNews(){
                         <Imagem><Img  src={item.imagem_destaque_url} alt={item.descricao_imagem}/></Imagem>
                         <News> 
                             <Category><strong>{item.categoria_titulo}</strong></Category>
-                            <TitleMaterial><Link  href="news/${Item.slug}" alt="link"> {item.titulo} </Link></TitleMaterial>
+                            <TitleMaterial>
+                                <Link to={`news/${item.slug}`} alt="link"> {item.titulo} </Link>
+                            </TitleMaterial>
                             <Description>
                                 <p>{item.resumo}</p>
                             </Description>
@@ -65,6 +68,7 @@ export function LastNews(){
             <a href="/"> 3 </a>
             <a href="/"> &raquo;</a> 
         </Pagination> 
-    </>
+    </Principal>
+    
     )
 }
