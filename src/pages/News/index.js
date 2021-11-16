@@ -4,6 +4,8 @@ import  facebook from './images/facebook.png'
 import  wpp from './images/whatsapp.png'
 import  twitter from './images/twitter.png'
 import  ref from './images/link.png'
+import calender from './images/Vector.png'
+
 export function News(){
   return(
       <>
@@ -13,7 +15,7 @@ export function News(){
         <h1>Produção de grãos da safra 2020/21 deve alcançar 268,3 milhões de toneladas</h1>
         <p> Lorem ipsum dolor sit amet, coectetur adipiscing elit. Suspendisse varius enim in eros... </p>
       <Data>
-             <img src="#" alt="calender" />
+             <img src={calender} alt="calender" />
             <span>  Públicado: Jun 14, 2021  -  Atualizado: Jun 25, 2021</span>
       </Data>
       <div>

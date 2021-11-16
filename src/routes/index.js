@@ -5,8 +5,8 @@ import { Routes as Switch, Route} from "react-router-dom";
 export function Routes() {
     return  ( 
         <Switch>
-            <Route path="/lastnews" element= {<LastNews />} />
-            <Route path="/news" element= {<News />} />
+            <Route path="/" element= {<LastNews />} />
+            <Route path="/news/:slug" element= {<News />} />
         </Switch>
     );
 }

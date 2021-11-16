@@ -39,16 +39,16 @@ export function LastNews(){
                 return (
                 <Item >
                     <ContentItem>   
-                        <Imagem><Img  src="#" alt="photo"/></Imagem>
+                        <Imagem><Img  src={item.imagem_destaque_url} alt={item.descricao_imagem}/></Imagem>
                         <News> 
-                            <Category><strong>Category</strong></Category>
-                            <TitleMaterial><Link href="./news" alt="link"> Title </Link></TitleMaterial>
+                            <Category><strong>{item.categoria_titulo}</strong></Category>
+                            <TitleMaterial><Link  href="news/${Item.slug}" alt="link"> {item.titulo} </Link></TitleMaterial>
                             <Description>
-                                <p>LmORARfEVT1iyjwN</p>
+                                <p>{item.resumo}</p>
                             </Description>
                             <Data>
                                 <img src={calender} alt="calender" />
-                                <span>  Publicado: 14 -  Atualizado: 15 </span>
+                                <span>  Publicado: {item.created_at} -  Atualizado: {item.updated_at} </span>
                             </Data>
                         </News>
                     </ContentItem>
@@ -56,7 +56,6 @@ export function LastNews(){
                 )
                }   )
             }
-                        
         </List>
         {/* PAGINAÇÃO */}
         <Pagination>
