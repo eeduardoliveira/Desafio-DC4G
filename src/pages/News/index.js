@@ -1,4 +1,5 @@
-import { Header, Data, TitleNews } from './styled'
+import { Header, Data, TitleNews, Camp } from './styled'
+import  camp from './images/plantation.png'
 export function News(){
   return(
       <>
@@ -14,7 +15,7 @@ export function News(){
       </TitleNews>
     </Header>
       
-    <img src="#" alt="campo" />
+    <Camp src={camp} alt="campo" />
     <p>Foto: Operação Acolhida</p>
 
 

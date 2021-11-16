@@ -26,10 +26,15 @@ export const Data = styled.div`
         font-size: 1.4rem;
         margin-top: 6.4rem;
         span{ 
-                margin-left: 0.875rem; 
+                margin-left: 0.887rem; 
         }
         img{
                 width: 2.13rem;
                 height: 2.1rem;
         }
+`
+
+export const Camp = styled.img`
+        margin: 5rem 20rem 8rem 20rem;
+
 `
