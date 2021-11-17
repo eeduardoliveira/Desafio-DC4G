@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { Filter, Category, Data, Description, Header, Img, Item, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem,Principal } from "./styled";
+import { Filter, Category, PublicationDate, Description, Header, Img, Item, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem, Main, ContainerPagination } from "./styled";
 import calender from './images/Vector.png';
 import filter from './images/filter-list.png';
 import {Link} from 'react-router-dom';
@@ -23,7 +23,7 @@ export function LastNews(){
          getNews();
      },[])
     return (
-    <Principal>
+    <Main>
      {/* TOPO DA PÁGINA */}
         <Header> 
             <h1><strong>Últimas Noticias</strong></h1> 
@@ -40,7 +40,7 @@ export function LastNews(){
                 return (
                 <Item >
                     <ContentItem>   
-                        <Imagem><Img  src={item.imagem_destaque_url} alt={item.descricao_imagem}/></Imagem>
+                        <Imagem> <Img  src={item.imagem_destaque_url} alt={item.descricao_imagem}/> </Imagem>
                         <News> 
                             <Category><strong>{item.categoria_titulo}</strong></Category>
                             <TitleMaterial>
@@ -49,10 +49,10 @@ export function LastNews(){
                             <Description>
                                 <p>{item.resumo}</p>
                             </Description>
-                            <Data>
+                            <PublicationDate>
                                 <img src={calender} alt="calender" />
-                                <span>  Publicado: {item.created_at} -  Atualizado: {item.updated_at} </span>
-                            </Data>
+                                <span>  Publicado: {new Date (item.created_at).toLocaleString()} -  Atualizado: {new Date (item.updated_at).toLocaleString()} </span>
+                            </PublicationDate>
                         </News>
                     </ContentItem>
                 </Item>
@@ -60,15 +60,17 @@ export function LastNews(){
                }   )
             }
         </List>
+        <ContainerPagination>
         {/* PAGINAÇÃO */}
         <Pagination>
-            <a href="/"> &laquo; </a>
-            <a href="/"> 1 </a>
-            <a href="/"> 2 </a>
-            <a href="/"> 3 </a>
-            <a href="/"> &raquo;</a> 
-        </Pagination> 
-    </Principal>
+            <ContainerPagination href="/"> &laquo; </ContainerPagination>
+            <ContainerPagination href="/"> 1 </ContainerPagination>
+            <ContainerPagination href="/"> 2 </ContainerPagination>
+            <ContainerPagination href="/"> 3 </ContainerPagination>
+            <ContainerPagination href="/"> &raquo;</ContainerPagination> 
+        </Pagination>
+        </ContainerPagination> 
+    </Main>
     
     )
 }
