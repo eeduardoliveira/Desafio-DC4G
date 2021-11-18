@@ -1,12 +1,14 @@
 import { useLayoutEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Header, PublicationDate, TitleNews, Share, Main, Content, Text, Section, Container, AdditionalInformation, Category } from './styled'
+import { Header, PublicationDate, TitleNews, Share, Main, Content, Text, Section, Container, AdditionalInformation, Category, ButtonBack } from './styled'
 import  facebook from './images/facebook.png'
 import  whatsapp from './images/whatsapp.png'
 import  twitter from './images/twitter.png'
 import  linkImage from './images/link.png'
 import calender from './images/Vector.png'
 
+
+// Integrando a API
 export function News(){
       const [news, setNews ]= useState({})
       const {slug} = useParams();
@@ -23,7 +25,7 @@ export function News(){
       useLayoutEffect(() => {
             showNews();
         },[])
-        const {
+        const { //Tratando as chamadas da API, transformando-as em chamadas inglês para facilitar a comunicaçao.
             titulo: title, 
             resumo: resume, 
             created_at, 
@@ -32,12 +34,14 @@ export function News(){
             descricao_imagem: description_image,
             categoria_titulo: category,
             } = news; 
+            // Inicio do site
   return(
     <Main>
     <Section>
         <Container>
+             <ButtonBack to='/' alt="back">VOLTAR</ButtonBack>
             <Header>
-                <TitleNews>
+                <TitleNews> 
                         <h1>{title}</h1>
                         <p>{resume}</p>
                     <AdditionalInformation>
@@ -73,7 +77,7 @@ export function News(){
                 <small><strong>Foto: {description_image}</strong></small>             
                 <Text dangerouslySetInnerHTML={{__html:`${news.conteudo}`}} /> 
                 <Category>
-                    <p><strong>CATEGORIA:</strong> <a href= "#" alt="">{category}</a></p>
+                    <p><b>CATEGORIA:</b> <a href= "#" alt="">{category}</a></p>
                 </Category>
             </Container>
         </Content>

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { Filter, Category, PublicationDate, Description, Header, Img, Item, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem, Main, ContainerPagination } from "./styled";
+import { Filter, Category, PublicationDate, Description, Header, Img, Item, News, TitleMaterial, Pagination, FilterText, FilterImg, List, ContentItem, Imagem, Main, ContainerPagination, LinkPagination } from "./styled";
 import calender from './images/Vector.png';
 import filter from './images/filter-list.png';
 import {Link} from 'react-router-dom';
@@ -9,19 +9,19 @@ export function LastNews(){
     // Integração da API
     const [news, setNews] = useState([])
     const getNews = async () => { 
-        const response = await fetch('https://newnoticias.digital-gov.com/api/cms/noticias/', {   
+        const response = await fetch(`https://newnoticias.digital-gov.com/api/cms/noticias/?categoria_slug=${news}`, {   
             method: 'GET', 
             headers: { 
                 Authorization: 'Api-Key z3QazK8p.KVEhWR0A9GvpCUF70KsCqrKC9ROmLjWL',
             }
-          }) 
-        const {results} = await response.json();
-        setNews(results);
-        console.log(results);
-    }
-    useEffect(() => {
-         getNews();
-     },[])
+          });
+          const {results} = await response.json();
+          setNews(results);
+          console.log(results);
+      }
+      useEffect(() => {
+           getNews();
+       },[])
     return (
     <Main>
      {/* TOPO DA PÁGINA */}
@@ -29,9 +29,9 @@ export function LastNews(){
             <h1><strong>Últimas Noticias</strong></h1> 
             <div> <strong>18</strong> Resultados</div>
         </Header>
-        <Filter>
+        <Filter onClick = {() => setNews("informacao")}>
              <FilterImg src={filter} alt="button" />
-             <FilterText><strong>Filtrar</strong></FilterText>  
+             <FilterText><b>Filtrar</b></FilterText>  
         </Filter>
         {/* NOTICIAS */}
         <List>
@@ -63,11 +63,11 @@ export function LastNews(){
         <ContainerPagination>
         {/* PAGINAÇÃO */}
         <Pagination>
-            <ContainerPagination href="/"> &laquo; </ContainerPagination>
-            <ContainerPagination href="/"> 1 </ContainerPagination>
-            <ContainerPagination href="/"> 2 </ContainerPagination>
-            <ContainerPagination href="/"> 3 </ContainerPagination>
-            <ContainerPagination href="/"> &raquo;</ContainerPagination> 
+            <LinkPagination href="/"> &laquo; </LinkPagination>
+            <LinkPagination href="/"> 1 </LinkPagination>
+            <LinkPagination href="/"> 2 </LinkPagination>
+            <LinkPagination href="/"> 3 </LinkPagination>
+            <LinkPagination href="/"> &raquo;</LinkPagination> 
         </Pagination>
         </ContainerPagination> 
     </Main>

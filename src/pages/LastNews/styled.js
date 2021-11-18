@@ -218,6 +218,6 @@ export const ContainerPagination = styled.section`
         justify-content: center;
 `
 
-export const ItemPagination = styled.a`
+export const LinkPagination = styled.a`
 
 `
