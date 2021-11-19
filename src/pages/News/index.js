@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Header, PublicationDate, TitleNews, Share, Main, Content, Text, Section, Container, AdditionalInformation, Category, ButtonBack } from './styled'
+import { Header, PublicationDate, TitleNews, Share, Main, Content, Text, Section, Container, AdditionalInformation, Category, ButtonBack, Loader } from './styled'
 import  facebook from './images/facebook.png'
 import  whatsapp from './images/whatsapp.png'
 import  twitter from './images/twitter.png'
@@ -12,16 +12,24 @@ import calender from './images/Vector.png'
 export function News(){
       const [news, setNews ]= useState({})
       const {slug} = useParams();
+      const [loading, setLoading] = useState(false);
       const showNews = async () => {
-            const response = await fetch(`https://newnoticias.digital-gov.com/api/cms/noticias/?slug=${slug}`, {   
-                  method: 'GET', 
-                  headers: { 
-                      Authorization: 'Api-Key z3QazK8p.KVEhWR0A9GvpCUF70KsCqrKC9ROmLjWL',
-                  }
-                  })
-      const {results} = await response.json();
-      setNews(results[0]);
-      }
+                        try {
+        setLoading(true);
+        const response = await fetch(`https://newnoticias.digital-gov.com/api/cms/noticias/?slug=${slug}`, {   
+            method: 'GET', 
+            headers: { 
+                Authorization: 'Api-Key z3QazK8p.KVEhWR0A9GvpCUF70KsCqrKC9ROmLjWL',
+            }
+            })
+const {results} = await response.json();
+setNews(results[0]);
+        }catch (e) {
+            alert("REFRESH PAGE or RETURN TO LAST PAGE");
+          } finally {
+            setLoading(false);
+          }
+      };
       useLayoutEffect(() => {
             showNews();
         },[])
@@ -35,7 +43,7 @@ export function News(){
             categoria_titulo: category,
             } = news; 
             // Inicio do site
-  return(
+  return (
     <Main>
     <Section>
         <Container>
@@ -72,16 +80,24 @@ export function News(){
             </Container>
     </Section>
          <Content>
+         {loading ? (
+        <Loader>
+          <h2>Loading...</h2>
+        </Loader>
+      ) : (
             <Container>
                 <figure><img src={image} alt={description_image} loading="lazy" /></figure>
                 <small><strong>Foto: {description_image}</strong></small>             
                 <Text dangerouslySetInnerHTML={{__html:`${news.conteudo}`}} /> 
+       
                 <Category>
                     <p><b>CATEGORIA:</b> <a href= "#" alt="">{category}</a></p>
                 </Category>
             </Container>
-        </Content>
+            ) 
+        }
+        </Content> 
     </Main>
   )
-  
-}
+      
+} 

@@ -1,26 +1,37 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-// Main contempla todo o codigo
 export const Main = styled.div`
     padding: 8rem 20rem 1.6rem 20rem;
     margin: auto;
     padding: 0;
 `
-// Container contempla todo o Header
 export const Container = styled.section`
     max-width: 1040px;
 `
+
 export const ButtonBack = styled(Link)`
     text-decoration: none;
     font-size: 1.6rem;    
     color: #222222;
     padding: 2rem;
     display: flex;
-    
-    
+    height: 3em;
+    width: 11rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background-color: #0073E6;
+    &:hover {
+        box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+        background-color: #FFFFFF;
+        transform: translateY(-2px);
+    }
 `
-// Essa section contempla o header
 export const Section = styled.section`
     width: 100%;
     background-color: #0073E6;
@@ -29,16 +40,26 @@ export const Section = styled.section`
     justify-content: center;
 
 `
-// Topo da Página
+export const Loader = styled.div`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5rem;
+        h2 {
+            color: #0073E6;
+            height: 40vh;
+            font-size: 3rem;
+        }
+
+`
 export const Header =  styled.div`
     padding: 4rem 2.4rem;
     @media screen and (min-width: 1024px) {
-    position: relative;
-    text-align: row;
-    padding-block: 8rem 4.4rem;
-    }
+        position: relative;
+        text-align: row;
+        padding-block: 8rem 4.4rem;
+     }
 `
-// Titulo da Noticia
 export const TitleNews =  styled.div`
     color: #FFFFFF;
     h1 {
@@ -59,7 +80,6 @@ export const TitleNews =  styled.div`
     }  
  }
 `
-// Links de redes sociais
 export const AdditionalInformation = styled.section`
 @media screen and (max-width: 738px) {
     padding-top: 3.2rem;
@@ -73,13 +93,12 @@ export const AdditionalInformation = styled.section`
     align-items: center;
  }
 `
-// Data da Publicação
 export const PublicationDate = styled.div`
 @media screen and (max-width:738px) {
+    font-size: 1.2rem;
     img {
         display: none;
     }
-    font-size: 1.2rem;
 }
 @media screen and (min-width:1024px) {
     display: flex;
@@ -95,7 +114,6 @@ export const PublicationDate = styled.div`
         }
 }
 `
-// NAV que contempla os icones das redes sociais
 export const Share = styled.nav`
  @media screen and (max-width: 738px) {
     padding-top: 3.7rem;
@@ -132,7 +150,6 @@ export const Share = styled.nav`
 
 `
 
-// NOTICIA 
 export const Text = styled.div`
     margin-bottom: 0.24rem;
     ul{
@@ -141,7 +158,6 @@ export const Text = styled.div`
     p, h2, li {
         margin-bottom: 2rem;
         font-size: 1.6rem;
-
     }
     a {
         text-decoration: none;
@@ -196,7 +212,6 @@ export const Content = styled.div`
         justify-content: center;
         margin-top: 1.6rem;
         font-size: 1.4rem;
-
     }
 }
 `

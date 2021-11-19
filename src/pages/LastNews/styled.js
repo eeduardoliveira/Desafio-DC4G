@@ -16,7 +16,6 @@ export const Header = styled.header`
         letter-spacing: 0.1px;
         font-size: 3.2rem;
       }
-
       div {
         color: #0073E6;
         font-size:1.4rem;
@@ -30,7 +29,6 @@ export const Header = styled.header`
         align-items: center; 
         text-align: center;
         margin-top: 12rem;
-
      h1 {
         font-size: 4.0rem;
         }
@@ -44,7 +42,7 @@ export const Header = styled.header`
        }
 `
 // Botão Filtro
-export const Filter = styled.button`
+export const Filter = styled.select`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -61,7 +59,7 @@ export const Filter = styled.button`
        }
     `
 
-export const FilterText = styled.span`
+export const FilterText = styled.button`
         font-family: 'roboto', sans-serif;
         margin-right: 5.6rem;
         margin-left: 1.5rem;
@@ -76,14 +74,24 @@ export const FilterImg = styled.img`
        height: 1.2rem;
        margin-left: 1.6rem;
 `
+export const Loader = styled.div`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5rem;
+       h2 {
+        color: #0073E6;
+        height: 40vh;
+        font-size: 3rem;
+       }
 
+`
 export const List = styled.ul`
         margin-top: 4rem;
         display: flex;
         flex-direction: column;
         list-style: none;
 `
-// box com a noticia
 export const Item = styled.li`
         width: 100%;
         border: 1px solid #E1E6EF;
@@ -114,7 +122,6 @@ export const News = styled.div`
         padding-bottom: 2.4rem;
 @media screen and (min-width: 1024px) {
         padding: 0.75rem 0;
-
 }
 `
 // titulo da noticia
@@ -145,14 +152,12 @@ export const Img = styled.img`
         border-radius: 5px;
         height: 100%;
         width: 100%;
-
 `
 export const Imagem = styled.div`
         width: 100%;
         height: 20rem;
 @media screen and (min-width: 1024px) {
         max-width: 20rem;
-
 }
 `
 
@@ -170,7 +175,6 @@ export const PublicationDate = styled.div`
                 width: 2.13rem;
                 height: 2.1rem;
         }
-
         span{ 
                 margin-left: 0.875rem; 
         }
@@ -194,7 +198,7 @@ export const Pagination = styled.div`
         gap: 3rem;
         font-size: 25px;
         padding-block: 13rem;
-        a {
+        button {
                 color: #0073E6;
                 text-decoration: none;
                 transition: all .3s ease-in;
@@ -218,6 +222,8 @@ export const ContainerPagination = styled.section`
         justify-content: center;
 `
 
-export const LinkPagination = styled.a`
-
+export const LinkPagination = styled.button`
+        background-color: #FFFFFFFF;
+        border: none;
+        font-size: 2.5rem;
 `
