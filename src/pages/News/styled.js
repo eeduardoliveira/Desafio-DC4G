@@ -183,7 +183,6 @@ export const Text = styled.div`
     }
  }
 `
-
 export const Content = styled.div`
     padding: 4rem 2.4rem;
     img {
@@ -206,7 +205,7 @@ export const Content = styled.div`
         height: 500px;
         object-fit: cover;
     }
-    small{
+    small {
         display: flex;
         align-items: center;
         justify-content: center;

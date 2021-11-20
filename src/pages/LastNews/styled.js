@@ -8,7 +8,6 @@ export const Main = styled.div`
         padding: 0;
 }
 `
-// Cabeçalho do sites
 export const Header = styled.header` 
         h1 {
         display: flex;
@@ -41,39 +40,7 @@ export const Header = styled.header`
         }
        }
 `
-// Botão Filtro
-export const Filter = styled.select`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem 0;
-        width: 100%;
-        height: 4.8rem;
-        margin-top: 8rem;
-        border: 1px solid #0073E6;
-        box-shadow: 0px 8px 16px rgba(11, 31, 77, 0.04);
-        border-radius: 4px;
-        background-color: #FFFFFF;
-@media screen and (min-width: 1024px) {
-        width: auto;
-       }
-    `
 
-export const FilterText = styled.button`
-        font-family: 'roboto', sans-serif;
-        margin-right: 5.6rem;
-        margin-left: 1.5rem;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 19px;
-        color: #0073E6;
-`
-
-export const FilterImg = styled.img`
-       width: 1.8rem;
-       height: 1.2rem;
-       margin-left: 1.6rem;
-`
 export const Loader = styled.div`
         display: flex;
         align-items: center;
@@ -114,7 +81,6 @@ export const ContentItem = styled.section`
 }
 `
  
-// ajuste de margem da noticia
 export const News = styled.div`
         display: flex;
         flex-direction: column;
@@ -124,7 +90,6 @@ export const News = styled.div`
         padding: 0.75rem 0;
 }
 `
-// titulo da noticia
 export const TitleMaterial = styled.h2`
         color: #333333;
         font-size: 1.8rem;
@@ -161,7 +126,6 @@ export const Imagem = styled.div`
 }
 `
 
-// data de postagem da noticia
 export const PublicationDate = styled.div`
         display: flex;
         align-items: center;
@@ -174,13 +138,13 @@ export const PublicationDate = styled.div`
                 display: flex;
                 width: 2.13rem;
                 height: 2.1rem;
+                
         }
         span{ 
                 margin-left: 0.875rem; 
         }
 }
 `
-// a noticia
 export const Description = styled.p`
         font-size: 16px;
         margin-bottom: 1.8rem;
@@ -189,41 +153,17 @@ export const Description = styled.p`
         color: #333333;
         
 `
-export const Pagination = styled.div`  
-        display: flex;
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        gap: 3rem;
-        font-size: 25px;
-        padding-block: 13rem;
-        button {
-                color: #0073E6;
-                text-decoration: none;
-                transition: all .3s ease-in;
-                &:hover {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;        
-                        width: 4rem;
-                        height: 4rem;
-                        color: white;
-                        border-radius: 50%;
-                        background-color: #0073E6;
-                }
-        }
-`
 
 export const ContainerPagination = styled.section`
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: center;
+        padding-top: 5.6rem;
+        padding-bottom: 17rem;
+        button {
+                font-size: 1.6rem;
+                color: blue;
+        }
 `
 
-export const LinkPagination = styled.button`
-        background-color: #FFFFFFFF;
-        border: none;
-        font-size: 2.5rem;
-`
